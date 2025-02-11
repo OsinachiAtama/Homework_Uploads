@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function problem1()
+        { 
+            document.write("</br> Problem1:  </br>")
+            for(i = 40; i >= 10; i -= 2){ 
+                document.write("</br>" + i);
+            }
+            document.write("</br>");
+        }
+
+        function problem2()
+        { 
+            document.write("</br> Problem2:  </br>")
+            let sum = 0; 
+
+            while(sum <= 20){ 
+                let newAddition = prompt("Give me a number"); 
+                //Number is used to conver the string to an int before adding it
+                sum = Number(newAddition) + sum;  
+            }
+            document.write("</br> Sum :" + sum + " </br>")
+        }
+
+        function problem3()
+        { 
+            document.write("</br> Problem3:  </br>")
+            let sum = 0; 
+            let arr = []; 
+
+            while(sum <= 20){ 
+                let newAddition = prompt("Give me a number"); 
+                arr.push(Number(newAddition));
+                //Number is used to conver the string to an int before adding it
+                sum = Number(newAddition) + sum;  
+            }
+            document.write("</br> Array : " + arr + " </br>")
+        }
+
+        function problem4()
+        {   
+            document.write("</br> Problem4:  </br>")
+            let songs = 
+            { 
+                'The Beatles' : ['Hey Jude', 'Let It Be', 'Yesterday'],
+                'Led Zeppelin': ['Stairway to Heaven', 'Whole Lotta Love', 'Kashmir'],
+                'Queen': ['Another One Bites the Dust'],
+                'Nirvana': ['Smells Like Teen Spirit', 'Lithium'],
+                'Kaestrings': ['Rahama']
+            }
+
+            Object.keys(songs).forEach(function(band)
+            { 
+                document.write("</br>" + band +": "); 
+
+               songs[band].forEach(function(song){ 
+                    document.write(" "+ song + ", ");
+                });
+                document.write("</br>");
+            })
+        }
+
+        function problem5(){ 
+            document.write("</br> Problem5:  </br>")
+            let songs = 
+            { 
+                'The Beatles' : ['Hey Jude', 'Let It Be', 'Yesterday'],
+                'Led Zeppelin': ['Stairway to Heaven', 'Whole Lotta Love', 'Kashmir'],
+                'Queen': ['Another One Bites the Dust'],
+                'Nirvana': ['Smells Like Teen Spirit', 'Lithium'],
+                'Kaestrings': ['Rahama']
+            }
+            let band_given = prompt("Give me a band and I will give you it's songs"); 
+
+            if(band_given == " ")
+            { 
+                document.write(" </br> You did not give me any songs! </br> ");
+            } else if (!songs.hasOwnProperty(band_given)){ 
+                document.write("Sorry! I don't have any bands that go by that name.")
+            }
+            else {
+
+                Object.keys(songs).forEach(function(band)
+                {   
+                    if (band == band_given){ 
+                        document.write(band + ": ");
+                        songs[band].forEach(function(song){ 
+                            document.write(" "+ song + ", ");
+                            return;
+                        }); 
+                    }
+                })
+                document.write("</br>");
+            }
+        }
+
+        window.onload = function() { 
+            problem1();
+            problem2();
+            problem3();
+            problem4();
+            problem5();
+        }
+
+    </script>
+    
+</body>
+</html>
